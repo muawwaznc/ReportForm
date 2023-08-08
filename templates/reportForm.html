@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="right urdu-font">
+    {% include 'navbar.html' %}
+    <h2 class="main-heading">ماہانہ رپورٹ این سی جماعت اسلامی لاہور</h2>
+    <form method="post" action="add-report/" enctype="multipart/form-data">
+        {%csrf_token%}
+        <div class="block date-block row g-3">
+            <div class="col-md-2">
+                <label for="date" class="form-label">تاریخ</label>
+                <input type="date" class="form-control" name="date" required>
+            </div>
+            <div class="col-md-5">
+                <label for="NC-number" class="form-label">این سی نمبر</label>
+                <input type="number" class="form-control" name="NC-number" value="{{nc.number}}" readonly>
+            </div>
+            <div class="col-md-5">
+                <label for="NC-name" class="form-label">نام این سی</label>
+                <input type="text" class="form-control" name="NC-name" value="{{nc.name}}" readonly>
+            </div>
+        </div>
+
+        <div class="block organization-block row g-3">
+            <h3 class="block-heading">تنظیم</h3>
+            <div class="col-md-6">
+                <label for="president" class="form-label">صدر</label>
+                <input type="text" class="form-control" name="president" value="{{nc.president}}" readonly>
+            </div>
+            <div class="col-md-6">
+                <label for="vice-president" class="form-label">نائب صدر</label>
+                <input type="text" class="form-control" name="vice-president" value="{{nc.vicePresident}}" required>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="secretory" class="form-label">سیکرٹری</label>
+                <input type="text" class="form-control" name="secretory" value="{{nc.secretory}}" required>
+            </div>
+            <div class="col-md-6">
+                <label for="vice-secretory" class="form-label">نائب سیکرٹری</label>
+                <input type="text" class="form-control" name="vice-secretory" value="{{nc.viceSecretory}}" required>
+            </div>
+
+            <div class="col-md-2">
+                <label for="finance" class="form-label">مالیات</label>
+                <input type="text" class="form-control" name="finance" value="{{nc.finance}}" required>
+            </div>
+            <div class="col-md-2">
+                <label for="publicity" class="form-label">نشرواشاعت</label>
+                <input type="text" class="form-control" name="publicity" value="{{nc.publicity}}" required>
+            </div>
+            <div class="col-md-2">
+                <label for="women-contacts" class="form-label">رابطہ خواتین</label>
+                <input type="text" class="form-control" name="women-contacts" value="{{nc.womenContacts}}" required>
+            </div>
+            <div class="col-md-2">
+                <label for="study-circle" class="form-label">سٹڈی سرکل</label>
+                <input type="text" class="form-control" name="study-circle" value="{{nc.studyCircle}}" required>
+            </div>
+            <div class="col-md-2">
+                <label for="youth" class="form-label">یوتھ</label>
+                <input type="text" class="form-control" name="youth" value="{{nc.youth}}" required>
+            </div>
+            <div class="col-md-2">
+                <label for="political-council" class="form-label">سیاسی کونسل</label>
+                <input type="text" class="form-control" name="political-council" value="{{nc.politicalCouncil}}" required>
+            </div>
+        </div>       
+
+        <div class="block manpower-block">
+            <h3 class="block-heading">افرادی قوت</h3>
+            <div class="row g-3">
+                <label for="rukan-initial" class="form-label">رکن</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="rukan-initial" placeholder="آغاز میں" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="rukan-added" placeholder="اضافہ" required>
+                </div>            
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="rukan-minus" placeholder="کمی" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="rukan-now" placeholder="موجودہ" required>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="rukan-active" placeholder="فعال" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="rukan-retired" placeholder="استشنیٰ" required>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="rukan-passive" placeholder="غیر فعال" required>
+                </div>            
+            </div>
+
+            <div class="row g-3">
+                <label for="umeedwar-initial" class="form-label">امیدواررکن</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="umeedwar-initial" placeholder="آغاز میں" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="umeedwar-added" placeholder="اضافہ" required>
+                </div>            
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="umeedwar-minus" placeholder="کمی" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="umeedwar-now" placeholder="موجودہ" required>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="rukan-rwabit" class="form-label">ارکان</label>
+                    <input type="text" class="form-control" name="rukan-rwabit" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="rukan-rwabit-number" class="form-label">تعداد روابط</label>
+                    <input type="text" class="form-control" name="rukan-rwabit-number" required>
+                </div>            
+                <div class="col-md-6">
+                    <label for="umeedwar-rwabit" class="form-label">امیدواران</label>
+                    <input type="text" class="form-control" name="umeedwar-rwabit" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="umeedwar-rwabit-number" class="form-label">تعداد روابط</label>
+                    <input type="text" class="form-control" name="umeedwar-rwabit-number" required>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="karkun" class="form-label">تعداد ممبران سٹڈی سرکل/ تنظیمی کارکنان</label>
+                    <input type="text" class="form-control" name="karkun" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="voters" class="form-label">تعداد ووٹرز</label>
+                    <input type="text" class="form-control" name="voters" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="block program-block row g-3">
+            <h3 class="block-heading">این سی پروگرامات</h3>
+            <input type="number" name="extra-count" id="extra-count" value="0" hidden>
+            <div class="col-md-3">
+                <label for="tanzeemi-ijtama-target" class="form-label">تنظیمی اجتماع</label>
+                <input type="number" class="form-control" name="tanzeemi-ijtama-target" placeholder="ہدف" required>
+                <input type="number" class="form-control" name="tanzeemi-ijtama-held" placeholder="منقعدہ" required>
+                <input type="number" class="form-control" name="tanzeemi-ijtama-attendence" placeholder="حاضری" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="dars-target" class="form-label">درس قرآن</label>
+                <input type="number" class="form-control" name="dars-target" placeholder="ہدف" required>
+                <input type="number" class="form-control" name="dars-held" placeholder="منقعدہ" required>
+                <input type="number" class="form-control" name="dars-attendence" placeholder="حاضری" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="dawati-ijtama-target" class="form-label">دعوتی اجتماع</label>
+                <input type="number" class="form-control" name="dawati-ijtama-target" placeholder="ہدف" required>
+                <input type="number" class="form-control" name="dawati-ijtama-held" placeholder="منقعدہ" required>
+                <input type="number" class="form-control" name="dawati-ijtama-attendence" placeholder="حاضری" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="ahl-khana-target" class="form-label">اجتماع اہل خانہ</label>
+                <input type="number" class="form-control" name="ahl-khana-target" placeholder="ہدف" required>
+                <input type="number" class="form-control" name="ahl-khana-held" placeholder="منقعدہ" required>
+                <input type="number" class="form-control" name="ahl-khana-attendence" placeholder="حاضری" required>
+            </div>
+
+            <div class="col-md-12">
+                <label for="extra-target" class="form-label">دوران ماہ کتنے بلاک کوڈز میں دعوتی اجتماع منعقد ہوا؟</label>
+                <input type="number" class="form-control" name="dawa-program-count" required>
+            </div>
+            
+
+        </div>
+        <div class="block program-block row g-3" id="program-block">
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <br>
+            <button class="btn btn-outline-secondary" type="button" onclick="AddExtraNCProgramSection()">دیگر پروگرام کا اندراج کریں</button>
+        </div>
+
+        <div class="block library-block row g-3">
+            <h3 class="block-heading">این سی میں رسائل و لائبریری</h3>
+            <div class="col-md-2">
+                <label for="trjaman" class="form-label">ترجمان القرآن</label>
+                <input type="number" class="form-control" name="trjaman" required>
+            </div>
+            <div class="col-md-2">
+                <label for="asia" class="form-label">ایشیاء</label>
+                <input type="number" class="form-control" name="asia" required>
+            </div>
+            
+            <div class="col-md-2">
+                <label for="btool" class="form-label">بتول</label>
+                <input type="number" class="form-control" name="btool" required>
+            </div>
+            <div class="col-md-2">
+                <label for="JI-library" class="form-label">جماعتی لائبریری</label>
+                <input type="number" class="form-control" name="JI-library" required>
+            </div>
+
+            <div class="col-md-2">
+                <label for="personal-library" class="form-label">ذاتی لائبریری</label>
+                <input type="number" class="form-control" name="personal-library" required>
+            </div>
+            <div class="col-md-2">
+                <label for="issue-books" class="form-label">اجراء کتب لائبریری</label>
+                <input type="number" class="form-control" name="issue-books" required>
+            </div>
+        </div>
+
+        <div class="block Dawa-block row g-3">
+            <h3 class="block-heading">دعوتی وفود</h3>
+            <div class="col-md-2">
+                <label for="total-block-code" class="form-label">این سی میں کل بلاک کوڈ</label>
+                <input type="number" class="form-control" name="total-block-code" required>
+            </div>
+            <div class="col-md-2">
+                <label for="permenent-dawa" class="form-label">قائم کردہ مستقل دعوتی وفود</label>
+                <input type="number" class="form-control" name="permenent-dawa" required>
+            </div>
+            
+            <div class="col-md-2">
+                <label for="held-dawa" class="form-label">دوران ماہ وفد منعقدہ</label>
+                <input type="number" class="form-control" name="held-dawa" required>
+            </div>
+            <div class="col-md-2">
+                <label for="total-meetings" class="form-label">تعداد ملاقاتیں</label>
+                <input type="number" class="form-control" name="total-meetings" required>
+            </div>
+
+            <div class="col-md-2">
+                <label for="no-of-houses" class="form-label">تعداد گھر</label>
+                <input type="number" class="form-control" name="no-of-houses" required>
+            </div>
+            <div class="col-md-2">
+                <label for="books-distribution" class="form-label">تقسیم لٹریچر/ کتب</label>
+                <input type="number" class="form-control" name="books-distribution" required>
+            </div>
+
+            <div class="col-md-2">
+                <label for="individual-meetings" class="form-label">انفرادی ملاقاتیں(ارکان)</label>
+                <input type="number" class="form-control" name="individual-meetings" required>
+            </div>
+            <div class="col-md-2">
+                <label for="voters" class="form-label">ووٹرز/ممبرز(حاصل کردا نمبرز)</label>
+                <input type="number" class="form-control" name="voters" required>
+            </div>
+        </div>
+        
+        <div class="block politics-block row g-3">
+            <h3 class="block-heading">سیاسی امور</h3>
+            <div class="col-md-4">
+                <legend class="col-form-label col-md-12">کیا پبلک سیکٹریٹ قائم ہے؟</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="public-secretariat" id="public-secretariat-radio1" value="ہاں" checked>
+                        <label class="form-check-label" for="public-secretariat-radio1">ہاں</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="public-secretariat" id="public-secretariat-radio2" value="نہیں">
+                        <label class="form-check-label" for="public-secretariat-radio2">نہیں</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="political-activity" class="form-label">دوران ماہ کوئی سرگرمی</label>
+                <input type="text" class="form-control" name="political-activity" required>
+            </div>
+            
+            <div class="col-md-4">
+                <label for="public-issue" class="form-label">شہری مسائل پر کوئی کوشش</label>
+                <input type="text" class="form-control" name="public-issue" required>
+            </div>
+        </div>
+
+        <div class="block upper-block row g-3">
+            <h3 class="block-heading">بالائی نظم کے پروگرام</h3>
+            <div class="col-md-4">
+                <label for="zone-org-program-target" class="form-label">زونل تنظیمی اجتماع</label>
+                <input type="number" class="form-control" name="zone-org-program-target" placeholder="ہدف" required>
+                <input type="number" class="form-control" name="zone-org-program-attendence" placeholder="شرکاء" required>
+            </div>
+            <div class="col-md-4">
+                <label for="zone-tarbiyya-program-target" class="form-label">زونل تربیتی اجتماع</label>
+                <input type="number" class="form-control" name="zone-tarbiyya-program-target" placeholder="ہدف" required>
+                <input type="number" class="form-control" name="zone-tarbiyya-program-attendence" placeholder="شرکاء" required>
+            </div>
+            
+            <div class="col-md-4">
+                <label for="zone-study-circle-target" class="form-label">زونل سٹڈی سرکل</label>
+                <input type="number" class="form-control" name="zone-study-circle-target" placeholder="ہدف" required>
+                <input type="number" class="form-control" name="zone-study-circle-attendence" placeholder="شرکاء" required>
+            </div>
+        </div>
+
+        <div class="block alkhidmat-block row g-3">
+            <h3 class="block-heading">الخدمت</h3>
+            <input type="number" name="alkhidmat-project-count" id="alkhidmat-project-count" value="0" hidden>
+            <div class="col-md-2">
+                <legend class="col-form-label col-md-12">کیا کوئی پراجیکٹ ہے؟</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input onclick="EnableAddAlkidmatDetailsBtn()" class="form-check-input" type="radio" name="is-alkhidmat-project" id="gridRadios1" value="ہاں" checked>
+                        <label class="form-check-label" for="gridRadios1">ہاں</label>
+                    </div>
+                    <div class="form-check">
+                        <input onclick="DisableAddAlkidmatDetailsBtn()" class="form-check-input" type="radio" name="is-alkhidmat-project" id="gridRadios2" value="نہیں">
+                        <label class="form-check-label" for="gridRadios2">نہیں</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <legend class="col-form-label col-md-12">کیا مزید پراجیکٹ کا منصوبہ ہے؟</legend>
+                <div class="col-sm-10">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is-alkhidmat-future-project" id="gridRadios1" value="ہاں">
+                        <label class="form-check-label" for="gridRadios1">ہاں</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="is-alkhidmat-future-project" id="gridRadios2" value="نہیں" checked>
+                        <label class="form-check-label" for="gridRadios2">نہیں</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block alkhidmat-block row g-3" id="alkhidmat-block">
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <br>
+            <button id="add-alkidmat-details-btn"  class="btn btn-outline-secondary" type="button" onclick="AddAlkhidmatProjectDetailSection()">تفصیل کا اندراج کریں</button>
+        </div>
+        
+        <div class="block IT-block row g-3">
+            <h3 class="block-heading">آئی ٹی/ سوشل میڈیا</h3>
+            <div class="col-md-3">
+                <label for="facebook-page" class="form-label">فیس بک پیج</label>
+                <input type="text" class="form-control" name="facebook-page" required>
+            </div>
+            <div class="col-md-3">
+                <label for="whatsapp-number" class="form-label">واٹس ایپ نمبر</label>
+                <input type="number" class="form-control" name="whatsapp-number" required>
+            </div>
+            
+            <div class="col-md-3">
+                <label for="email" class="form-label">ای میل اکاؤنٹ</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+
+            <div class="col-md-3">
+                <label for="youtube-channel" class="form-label">یوٹیوب چینل</label>
+                <input type="text" class="form-control" name="youtube-channel" required>
+            </div>
+        </div>
+
+        <div class="block finance-block row g-3">
+            <h3 class="block-heading">مالیات</h3>
+            <div class="col-md-2">
+                <label for="monthly-balance" class="form-label">ماہانہ اعانت</label>
+                <input required type="number" class="form-control" onchange="changeBalance(); sumMonthlyTotal(); totalCurrent()" name="monthly-balance" id="monthly-balance" placeholder="سابقہ بدست">
+                <input required type="number" class="form-control" onchange="changeAmount(); sumMonthlyTotal(); totalCurrent()" name="monthly-amount" id="monthly-amount" placeholder="دوران ماہ وصولی">
+                <input readonly type="number" class="form-control" name="monthly-total" id="monthly-total" placeholder="کل رقم">
+                <input required type="number" class="form-control" onchange="changeExpenses(); totalCurrent()" name="monthly-expenses" id="monthly-expenses" placeholder="اخراجات">
+                <input required type="number" class="form-control" onchange="changeUpper(); totalCurrent()" name="monthly-upper" id="monthly-upper" placeholder="ادائیگی بالائی نظم">
+                <input readonly type="number" class="form-control" name="monthly-current" id="monthly-current" placeholder="موجودہ بدست">
+            </div>
+            <div class="col-md-2">
+                <label for="zakat-balance" class="form-label">زکوٰۃ</label>
+                <input required type="number" class="form-control" onchange="changeBalance(); sumMonthlyTotal(); totalCurrent()" name="zakat-balance" id="zakat-balance" placeholder="سابقہ بدست">
+                <input required type="number" class="form-control" onchange="changeAmount(); sumMonthlyTotal(); totalCurrent()" name="zakat-amount" id="zakat-amount" placeholder="دوران ماہ وصولی">
+                <input readonly type="number" class="form-control" name="zakat-total" id="zakat-total" placeholder="کل رقم">
+                <input required type="number" class="form-control" onchange="changeExpenses(); totalCurrent()" name="zakat-expenses" id="zakat-expenses" placeholder="اخراجات">
+                <input required type="number" class="form-control" onchange="changeUpper(); totalCurrent()" name="zakat-upper" id="zakat-upper" placeholder="ادائیگی بالائی نظم">
+                <input readonly type="number" class="form-control" name="zakat-current" id="zakat-current" placeholder="موجودہ بدست">
+            </div>
+            <div class="col-md-2">
+                <label for="social-welfare-balance" class="form-label">خدمت خلق</label>
+                <input required type="number" class="form-control" onchange="changeBalance(); sumMonthlyTotal(); totalCurrent()" name="social-welfare-balance" id="social-welfare-balance" placeholder="سابقہ بدست">
+                <input required type="number" class="form-control" onchange="changeAmount(); sumMonthlyTotal(); totalCurrent()" name="social-welfare-amount" id="social-welfare-amount" placeholder="دوران ماہ وصولی">
+                <input readonly type="number" class="form-control" name="social-welfare-total" id="social-welfare-total" placeholder="کل رقم">
+                <input required type="number" class="form-control" onchange="changeExpenses(); totalCurrent()" name="social-welfare-expenses" id="social-welfare-expenses" placeholder="اخراجات">
+                <input required type="number" class="form-control" onchange="changeUpper(); totalCurrent()" name="social-welfare-upper" id="social-welfare-upper" placeholder="ادائیگی بالائی نظم">
+                <input readonly type="number" class="form-control" name="social-welfare-current" id="social-welfare-current" placeholder="موجودہ بدست">
+            </div>
+            <div class="col-md-2">
+                <label for="extra-balance" class="form-label">دیگر امانتی رقوم</label>
+                <input required type="number" class="form-control" onchange="changeBalance(); sumMonthlyTotal(); totalCurrent()" name="extra-balance" id="extra-balance" placeholder="سابقہ بدست">
+                <input required type="number" class="form-control" onchange="changeAmount(); sumMonthlyTotal(); totalCurrent()" name="extra-amount" id="extra-amount" placeholder="دوران ماہ وصولی">
+                <input readonly type="number" class="form-control" name="extra-total" id="extra-total" placeholder="کل رقم">
+                <input required type="number" class="form-control" onchange="changeExpenses(); totalCurrent()" name="extra-expenses" id="extra-expenses" placeholder="اخراجات">
+                <input required type="number" class="form-control" onchange="changeUpper(); totalCurrent()" name="extra-upper" id="extra-upper" placeholder="ادائیگی بالائی نظم">
+                <input readonly type="number" class="form-control" name="extra-current" id="extra-current" placeholder="موجودہ بدست">
+            </div>
+            <div class="col-md-2">
+                <label for="total-balance" class="form-label">کل</label>
+                <input readonly type="number" class="form-control" name="total-balance" id="total-balance" placeholder="سابقہ بدست">
+                <input readonly type="number" class="form-control" name="total-amount" id="total-amount" placeholder="دوران ماہ وصولی">
+                <input readonly type="number" class="form-control" name="total-total" id="total-total" placeholder="کل رقم">
+                <input readonly type="number" class="form-control" name="total-expenses" id="total-expenses" placeholder="اخراجات">
+                <input readonly type="number" class="form-control" name="total-upper" id="total-upper" placeholder="ادائیگی بالائی نظم">
+                <input readonly type="number" class="form-control" name="total-current" id="total-current" placeholder="موجودہ بدست">
+            </div>
+        </div>
+
+        <div class="block extra-block row g-3">
+            <h3 class="block-heading">دیگر معلومات</h3>
+            <div class="col-md-2">
+                <label for="monthly-balance" class="form-label">جنوری سے اب تک اضافہ</label>
+                <input required type="number" class="form-control" name="added-from-start-1">
+                <input required type="number" class="form-control" name="added-from-start-2">
+                <input required type="number" class="form-control" name="added-from-start-3">
+                <input required type="number" class="form-control" name="added-from-start-4">
+
+                <input required type="number" class="form-control" name="added-from-start-5">
+                <input required type="number" class="form-control" name="added-from-start-6">
+                <input required type="number" class="form-control" name="added-from-start-7">
+                <input required type="number" class="form-control" name="added-from-start-8">
+                <input required type="number" class="form-control" name="added-from-start-9">
+            </div>
+
+            <div class="col-md-2">
+                <label for="monthly-balance" class="form-label">اضافہ دوران ماہ</label>
+                <input required type="number" class="form-control" name="monthly-added-1">
+                <input required type="number" class="form-control" name="monthly-added-2">
+                <input required type="number" class="form-control" name="monthly-added-3">
+                <input required type="number" class="form-control" name="monthly-added-4">
+
+                <input required type="number" class="form-control" name="monthly-added-5">
+                <input required type="number" class="form-control" name="monthly-added-6">
+                <input required type="number" class="form-control" name="monthly-added-7">
+                <input required type="number" class="form-control" name="monthly-added-8">
+                <input required type="number" class="form-control" name="monthly-added-9">
+            </div>
+            <div class="col-md-2">
+                <label for="monthly-balance" class="form-label">اس سال کا ہدف</label>
+                <input required type="number" class="form-control" name="goal-1">
+                <input required type="number" class="form-control" name="goal-2">
+                <input required type="number" class="form-control" name="goal-3">
+                <input required type="number" class="form-control" name="goal-4">
+
+                <input required type="number" class="form-control" name="goal-5">
+                <input required type="number" class="form-control" name="goal-6">
+                <input required type="number" class="form-control" name="goal-7">
+                <input required type="number" class="form-control" name="goal-8">
+                <input required type="number" class="form-control" name="goal-9">
+            </div>
+            <div class="col-md-2">
+                <label for="monthly-balance" class="form-label">اس سال کے آغاز پر</label>
+                <input required type="number" class="form-control" name="start-1">
+                <input required type="number" class="form-control" name="start-2">
+                <input required type="number" class="form-control" name="start-3">
+                <input required type="number" class="form-control" name="start-4">
+
+                <input required type="number" class="form-control" name="start-5">
+                <input required type="number" class="form-control" name="start-6">
+                <input required type="number" class="form-control" name="start-7">
+                <input required type="number" class="form-control" name="start-8">
+                <input required type="number" class="form-control" name="start-9">
+            </div>
+            <div class="col-md-4">
+                <label for="monthly-balance" class="form-label">...</label>
+                <input readonly value="این سی میں ارکان کی کل تعداد" type="text" class="form-control" name="sentence-1">
+                <input readonly value="جن ارکان کی باقائدہ ذمہ داری ہے انکی تعداد" type="text" class="form-control" name="sentence-2">
+                <input readonly value="جن کے روابط ہیں ان کی تعداد" type="text" class="form-control" name="sentence-3">
+                <input readonly value="ارکان کے روابط کی کل تعداد" type="text" class="form-control" name="sentence-4">
+
+                <input readonly value="امیدوران/ ممبران کی کل تعداد" type="text" class="form-control" name="sentence-5">
+                <input readonly value="جن کے روابط ہیں انکی تعداد " type="text" class="form-control" name="sentence-6">
+                <input readonly value="ان کے روابط کی تعداد" type="text" class="form-control" name="sentence-7">
+                <input readonly value="تنظیمی کارکنان کی تعداد" type="text" class="form-control" name="sentence-8">
+                <input readonly value="تربیتی اجتماع(زون) میں شرکت کرنے والوں کی تعداد" type="text" class="form-control" name="sentence-9">
+            </div>
+        </div>
+        
+        <div class="d-grid gap-2">
+            <br><br>
+            <button class="btn btn-outline-secondary" type="submit">رپورٹ کا اندراج کریں</button>
+        </div>
+    </form>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script>
+    function changeBalance(){
+        monthly = Number(document.getElementById('monthly-balance').value);
+        zakat = Number(document.getElementById('zakat-balance').value);
+        socialWelfare = Number(document.getElementById('social-welfare-balance').value);
+        extra = Number(document.getElementById('extra-balance').value);
+        total = monthly + zakat + socialWelfare + extra;
+        document.getElementById('total-balance').value = total
+    }
+
+    function changeAmount(){
+        monthly = Number(document.getElementById('monthly-amount').value);
+        zakat = Number(document.getElementById('zakat-amount').value);
+        socialWelfare = Number(document.getElementById('social-welfare-amount').value);
+        extra = Number(document.getElementById('extra-amount').value);
+        total = monthly + zakat + socialWelfare + extra;
+        document.getElementById('total-amount').value = total
+    }
+
+    function changeTotal(){
+        monthly = Number(document.getElementById('monthly-total').value);
+        zakat = Number(document.getElementById('zakat-total').value);
+        socialWelfare = Number(document.getElementById('social-welfare-total').value);
+        extra = Number(document.getElementById('extra-total').value);
+        total = monthly + zakat + socialWelfare + extra;
+        document.getElementById('total-total').value = total
+    }
+
+    function changeExpenses(){
+        monthly = Number(document.getElementById('monthly-expenses').value);
+        zakat = Number(document.getElementById('zakat-expenses').value);
+        socialWelfare = Number(document.getElementById('social-welfare-expenses').value);
+        extra = Number(document.getElementById('extra-expenses').value);
+        total = monthly + zakat + socialWelfare + extra;
+        document.getElementById('total-expenses').value = total
+    }
+
+    function changeUpper(){
+        monthly = Number(document.getElementById('monthly-upper').value);
+        zakat = Number(document.getElementById('zakat-upper').value);
+        socialWelfare = Number(document.getElementById('social-welfare-upper').value);
+        extra = Number(document.getElementById('extra-upper').value);
+        total = monthly + zakat + socialWelfare + extra;
+        document.getElementById('total-upper').value = total
+    }
+
+    function changeCurrent(){
+        monthly = Number(document.getElementById('monthly-current').value);
+        zakat = Number(document.getElementById('zakat-current').value);
+        socialWelfare = Number(document.getElementById('social-welfare-current').value);
+        extra = Number(document.getElementById('extra-current').value);
+        total = monthly + zakat + socialWelfare + extra;
+        document.getElementById('total-current').value = total
+    }
+
+    function sumMonthlyTotal(){
+        monthlyBalance = Number(document.getElementById('monthly-balance').value);
+        monthlyAmount = Number(document.getElementById('monthly-amount').value);
+        document.getElementById('monthly-total').value = monthlyBalance + monthlyAmount ;
+
+        zakatBalance = Number(document.getElementById('zakat-balance').value);
+        zakatAmount = Number(document.getElementById('zakat-amount').value);
+        document.getElementById('zakat-total').value = zakatBalance + zakatAmount ;
+
+        socialWelfareBalance = Number(document.getElementById('social-welfare-balance').value);
+        socialWelfareAmount = Number(document.getElementById('social-welfare-amount').value);
+        document.getElementById('social-welfare-total').value = socialWelfareBalance + socialWelfareAmount ;
+
+        extraBalance = Number(document.getElementById('extra-balance').value);
+        extraAmount = Number(document.getElementById('extra-amount').value);
+        document.getElementById('extra-total').value = extraBalance + extraAmount ;
+        changeTotal()
+    }
+
+    function totalCurrent(){
+        monthlyTotal = Number(document.getElementById('monthly-total').value);
+        monthlyExpenses = Number(document.getElementById('monthly-expenses').value);
+        monthlyUpper = Number(document.getElementById('monthly-upper').value);
+        document.getElementById('monthly-current').value = monthlyTotal - ( monthlyExpenses + monthlyUpper );
+
+        zakatTotal = Number(document.getElementById('zakat-total').value);
+        zakatExpenses = Number(document.getElementById('zakat-expenses').value);
+        zakatUpper = Number(document.getElementById('zakat-upper').value);
+        document.getElementById('zakat-current').value = zakatTotal - ( zakatExpenses + zakatUpper );
+
+        socialWelfareTotal = Number(document.getElementById('social-welfare-total').value);
+        socialWelfareExpenses = Number(document.getElementById('social-welfare-expenses').value);
+        socialWelfareUpper = Number(document.getElementById('social-welfare-upper').value);
+        document.getElementById('social-welfare-current').value = socialWelfareTotal - ( socialWelfareExpenses + socialWelfareUpper );
+
+        extraTotal = Number(document.getElementById('extra-total').value);
+        extraExpenses = Number(document.getElementById('extra-expenses').value);
+        extraUpper = Number(document.getElementById('extra-upper').value);
+        document.getElementById('extra-current').value = extraTotal - ( extraExpenses + extraUpper );
+
+        changeCurrent()
+    }
+
+    var alkhidmatProjectDetailCount = 1;
+    function AddAlkhidmatProjectDetailSection(){
+        block = document.getElementById('alkhidmat-block');
+        div = document.createElement('div');
+        div.classList.add('col-md-3');
+        name = "alkhidmat-project-detail" + alkhidmatProjectDetailCount
+        div.innerHTML = '<label for="' + name + '" class="form-label">تفصیل</label><input type="text" class="form-control" name="' + name + '"required>'
+        alkhidmatProjectDetailCount += 1;
+        block.prepend(div)
+
+        projectCountInput = document.getElementById('alkhidmat-project-count');
+        projectCountInput.value = alkhidmatProjectDetailCount;
+    }
+
+    function DisableAddAlkidmatDetailsBtn(){
+        addAlkidmatDetailsBtn = document.getElementById('add-alkidmat-details-btn');
+        addAlkidmatDetailsBtn.classList.add('disabled')
+        alkhidmatProjectDetailCount = 1;
+        console.log(addAlkidmatDetailsBtn)
+        div = document.getElementById('alkhidmat-block')
+        while (div.firstChild) {
+            div.removeChild(div.firstChild);
+        }
+    }
+
+    function EnableAddAlkidmatDetailsBtn(){
+        addAlkidmatDetailsBtn = document.getElementById('add-alkidmat-details-btn');
+        addAlkidmatDetailsBtn.classList.remove('disabled')
+        console.log(addAlkidmatDetailsBtn)
+    }
+
+
+    var extraNCProgramCount = 1;
+    function AddExtraNCProgramSection(){
+        block = document.getElementById('program-block');
+        div = document.createElement('div');
+        div.classList.add('col-md-3');
+        // name = "alkhidmat-project-detail" + extraNCProgramCount
+        div.innerHTML = `<label for="extra-name${extraNCProgramCount}" class="form-label">دیگر۔۔۔</label>
+                <select name="extra-name${extraNCProgramCount}" class="form-select" required>
+                    <option selected>منتخب کریں۔۔۔</option>
+                    {% for x in extraNCPrograms %}
+                        <option>{{x.name}}</option>
+                    {% endfor %}
+                </select>
+                <input type="number" class="form-control" name="extra-target${extraNCProgramCount}" placeholder="ہدف" required>
+                <input type="number" class="form-control" name="extra-held${extraNCProgramCount}" placeholder="منقعدہ" required>
+                <input type="number" class="form-control" name="extra-attendence${extraNCProgramCount}" placeholder="حاضری" required>
+                `
+                extraNCProgramCount += 1;
+        block.prepend(div)
+
+        extraCountInput = document.getElementById('extra-count');
+        extraCountInput.value = extraNCProgramCount;
+    }
+</script>
+
+</html>

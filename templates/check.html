@@ -1,0 +1,300 @@
+<!-- reports/templates/reports/display_report.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Report Display</title>
+</head>
+<body>
+    <h2 class="main-heading">ماہانہ رپورٹ این سی {{selectedNC.number}} برائے ماہ {{monthName}}</h2>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>نام این سی</th>
+                            <th>این سی نمبر</th>
+                            <th>رپورٹ برائے ماہ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{selectedNC.name}}</td>
+                            <td>{{selectedNC.number}}</td>
+                            <td>{{monthName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <table class="table table-hover">
+                    <h1>تنظیم</h1>
+                    <tbody>
+                        <tr>
+                            <td>{{selectedNC.president}}</td>
+                            <th>صدر</th>
+                        </tr>
+                        <tr>
+                            <td>{{selectedNC.vicePresident}}</td>
+                            <th>نائب صدر</th>
+                        </tr>
+                        <tr>
+                            <td>{{selectedNC.secretory}}</td>
+                            <th>سیکرٹری</th>
+                        </tr>
+                        <tr>
+                            <td>{{selectedNC.viceSecretory}}</td>
+                            <th>نائب سیکرٹری</th>
+                        </tr>
+            
+                        <tr>
+                            <td>{{selectedNC.finance}}</td>
+                            <th>مالیات</th>
+                        </tr>
+                        <tr>
+                            <td>{{selectedNC.publicity}}</td>
+                            <th>نشرواشاعت</th>
+                        </tr>
+                        <tr>
+                            <td>{{selectedNC.womenContacts}}</td>
+                            <th>رابطہ خواتین</th>
+                        </tr>
+                        <tr>
+                            <td>{{NC.studyCircle}}</td>
+                            <th>سٹڈی سرکل</th>
+                        </tr>
+                        <tr>
+                            <td>{{selectedNC.youth}}</td>
+                            <th>یوتھ</th>
+                        </tr>            
+                        <tr>
+                            <td>{{selectedNC.politicalCouncil}}</td>
+                            <th>سیاسی کونسل</th>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <table class="table table-hover">
+                    <h1>این سی پروگرامات</h1>
+                    <thead>
+                        <tr>
+                            <th>حاضری</th>
+                            <th>منعقدہ</th>
+                            <th>ہدف</th>
+                            <th>نوعیت</th>
+                            <th>نمبر</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in programNC %}
+                            <tr>
+                                <td>{{x.attendence}}</td>
+                                <td>{{x.held}}</td>
+                                <td>{{x.target}}</td>
+                                <td>{{x.name}}</td>
+                                <td>{{forloop.counter}}</td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>{{report.dawaProgramCount}}</td>
+                            <th>دوران ماہ کتنے بلاک کوڈز میں دعوتی اجتماع منعقد ہوا؟</th>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <table class="table table-hover">
+                    <h1>این سی میں رسائل، لائبریری اور دعوتی وفود</h1>
+                    <thead>
+                        <tr>
+                            <th>تعداد</th>
+                            <th>نام</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in libraryNDawa %}
+                            <tr>
+                                <td>{{x.number}}</td>
+                                <td>{{x.name}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            
+                <table class="table table-hover">
+                    <thead>
+                        <tr><h1>سیاسی امور</h1></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{politics.isPublicSecretariat}}</td>
+                            <th>کیا پبلک سیکٹریٹقائم ہے؟</th>
+                        </tr>
+                        <tr>
+                            <td>{{politics.activity}}</td>
+                            <th>دوران ماہ کوئی سرگرمی</th>
+                        </tr>
+                        <tr>
+                            <td>{{politics.tryOnCitizenIssue}}</td>
+                            <th>شہری مسائل پر کوئی کوشش</th>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <table class="table table-hover">
+                    <h1>بالائی نظم کے پروگرام</h1>
+                    <thead>
+                        <tr>
+                            <th>شرکاء</th>
+                            <th>ہدف</th>
+                            <th>نوعیت</th>
+                            <th>نمبر</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in upperProgram %}
+                            <tr>
+                                <td>{{x.attendence}}</td>
+                                <td>{{x.target}}</td>
+                                <td>{{x.name}}</td>
+                                <td>{{forloop.counter}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            
+                <table class="table table-hover">
+                    <h1>آئی ٹی/ سوشل میڈیا</h1>
+                    <tbody>
+                        <tr>
+                            <td>{{it.facebook}}</td>
+                            <th>فیس بک پیج</th>
+                        </tr>
+                        <tr>
+                            <td>{{it.whatsapp}}</td>
+                            <th>واٹس ایپ نمبر</th>
+                        </tr>
+                        <tr>
+                            <td>{{it.email}}</td>
+                            <th>ای میل اکاؤنٹ</th>
+                        </tr>
+                        <tr>
+                            <td>{{it.youtube}}</td>
+                            <th>یوٹیوب چینل</th>
+                        </tr>
+                    </tbody>
+                </table>
+            
+                <table class="table table-hover">
+                    <h1>مالیات</h1>
+                    <thead>
+                        <tr>
+                            <th>موجودہ بدست</th>
+                            <th>ادائیگی بالائی نظم</th>
+                            <th>اخراجات</th>
+                            <th>کل رقم</th>
+                            <th>دوران ماہ وصولی</th>
+                            <th>سابقہ بدست</th>
+                            <th>نوعیت</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in finance %}
+                            <tr>
+                                <td>{{x.currentBalance}}</td>
+                                <td>{{x.upper}}</td>
+                                <td>{{x.expenses}}</td>
+                                <td>{{x.total}}</td>
+                                <td>{{x.amount}}</td>
+                                <td>{{x.previousBalance}}</td>
+                                <th>{{x.name}}</th>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                
+    <table class="table table-hover">
+        <thead>
+            <h1>اراکین</h1>
+            <tr>
+                <th>ربط 6</th>
+                <th>ربط 5</th>
+                <th>ربط 4</th>
+                <th>ربط 3</th>
+                <th>ربط 2</th>
+                <th>ربط 1</th>
+                <th>نام رکن</th>
+                <th>نمبر شمار</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in Arkan %}
+                <tr>
+                    <td>{{x.rbt6}}</td>
+                    <td>{{x.rbt5}}</td>
+                    <td>{{x.rbt4}}</td>
+                    <td>{{x.rbt3}}</td>
+                    <td>{{x.rbt2}}</td>
+                    <td>{{x.rbt1}}</td>
+                    <th>{{x.name}}</th>
+                    <th>{{forloop.counter}}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table table-hover">
+        <h1>امیدوران/ ممبران سٹڈی سرکل</h1>
+        <thead>
+            <tr>
+                <th>ربط 6</th>
+                <th>ربط 5</th>
+                <th>ربط 4</th>
+                <th>ربط 3</th>
+                <th>ربط 2</th>
+                <th>ربط 1</th>
+                <th>نام امیدوار/ ممبر</th>
+                <th>نمبر شمار</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in Umeedwar %}
+                <tr>
+                    <td>{{x.rbt6}}</td>
+                    <td>{{x.rbt5}}</td>
+                    <td>{{x.rbt4}}</td>
+                    <td>{{x.rbt3}}</td>
+                    <td>{{x.rbt2}}</td>
+                    <td>{{x.rbt1}}</td>
+                    <th>{{x.name}}</th>
+                    <th>{{forloop.counter}}</th>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <table class="table table-hover">
+        <h1>کارکنان</h1>
+        <thead>
+            <tr>
+                <th>نام کارکن</th>
+                <th>نمبر شمار</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in Karkun %}
+                <tr>
+                    <td>{{x.name}}</td>
+                    <td>{{forloop.counter}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+</html>

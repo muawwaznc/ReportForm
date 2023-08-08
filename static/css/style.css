@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root{
+
+    --dark: #343a40;
+    --light: #f8f9fa;
+    --text-color: #ededed;
+    --main-color: tomato;
+}
+
+.block{
+    padding: 3px;
+}
+.index{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3px;
+}
+.index form{
+    padding: 10px;
+}
+.card{
+    width: 50%;
+}
+.card img{
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+.right.urdu-font{
+    font-family: 'Amiri', serif;
+    text-align: right;
+    background-color: var(--light);
+}
+.main-heading{
+    text-align: center;
+    margin: 20px 0 50px 0;
+    text-decoration: underline;
+}
+.block-heading{
+    text-align: center;
+    margin: 70px 0 20px 0;
+    background-color: var(--dark);
+    padding: 10px 0 10px 0;
+    color: var(--light);
+}
+input{
+    border: 1px black solid;
+    margin-bottom: 8px;
+    color: orange;
+    outline: black 1px solid;
+}
+.hidden-input{
+    display: none;
+}

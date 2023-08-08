@@ -1,0 +1,14 @@
+{% if ncGoalsList %}
+    <div class="block block-code-block row g-3">
+        <div class="col-md-12">
+            <label for="name" class="form-label">اہداف</label>
+        </div>
+    </div>
+{% endif %}
+{% for x in ncGoalsList %}
+    <div class="block block-code-block row g-3">
+        <div class="col-md-12">
+            <input value="{{x.detail}}" type="text" class="form-control" name="goal" readonly>
+        </div>
+    </div>
+{% endfor %}

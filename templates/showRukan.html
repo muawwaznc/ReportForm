@@ -1,0 +1,34 @@
+{% for x in arkanList %}
+    <h3 class="block-heading">رکن{{forloop.counter }}</h3>
+    <div class="block block-code-block row g-3">
+        <div class="col-md-12">
+            <label for="name1" class="form-label">نام رکن</label>
+            <input value="{{x.name}}" type="text" class="form-control" name="name1" readonly>
+        </div>
+
+        <div class="col-md-4">
+            <label for="rbt1" class="form-label">ربط1</label>
+            <input value="{{x.rbt1}}" type="text" class="form-control" name="rbt1" readonly>
+        </div>
+        <div class="col-md-4">
+            <label for="rbt2" class="form-label">ربط2</label>
+            <input value="{{x.rbt2}}" type="text" class="form-control" name="rbt2" readonly>
+        </div>            
+        <div class="col-md-4">
+            <label for="rbt3" class="form-label">ربط3</label>
+            <input value="{{x.rbt3}}" type="text" class="form-control" name="rbt3" readonly>
+        </div>  
+        <div class="col-md-4">
+            <label for="rbt4" class="form-label">ربط4</label>
+            <input value="{{x.rbt4}}" type="text" class="form-control" name="rbt4" readonly>
+        </div>
+        <div class="col-md-4">
+            <label for="rbt5" class="form-label">ربط5</label>
+            <input value="{{x.rbt5}}" type="text" class="form-control" name="rbt5" readonly>
+        </div>            
+        <div class="col-md-4">
+            <label for="rbt6" class="form-label">ربط6</label>
+            <input value="{{x.rbt6}}" type="text" class="form-control" name="rbt6" readonly>
+        </div>  
+    </div>
+{% endfor %}

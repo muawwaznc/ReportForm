@@ -1,0 +1,462 @@
+<form>
+    <div class="block date-block row g-3">
+        <div class="col-md-2">
+            <label for="date" class="form-label">تاریخ</label>
+            <input value="{{monthName}}" type="text" class="form-control" name="date" readonly>
+        </div>
+        <div class="col-md-5">
+            <label for="NC-number" class="form-label">این سی نمبر</label>
+            <input value="{{selectedNC.number}}" type="number" class="form-control" name="NC-number" readonly>
+        </div>
+        <div class="col-md-5">
+            <label for="NC-name" class="form-label">نام این سی</label>
+            <input value="{{selectedNC.name}}" type="text" class="form-control" name="NC-name" readonly>
+        </div>
+    </div>
+
+    <div class="block organization-block row g-3">
+        <h3 class="block-heading">تنظیم</h3>
+        <div class="col-md-6">
+            <label for="president" class="form-label">صدر</label>
+            <input value="{{selectedNC.president}}" type="text" class="form-control" name="president" readonly>
+        </div>
+        <div class="col-md-6">
+            <label for="vice-president" class="form-label">نائب صدر</label>
+            <input value="{{selectedNC.vicePresident}}" type="text" class="form-control" name="vice-president" readonly>
+        </div>
+        
+        <div class="col-md-6">
+            <label for="secretory" class="form-label">سیکرٹری</label>
+            <input value="{{selectedNC.secretory}}" type="text" class="form-control" name="secretory" readonly>
+        </div>
+        <div class="col-md-6">
+            <label for="vice-secretory" class="form-label">نائب سیکرٹری</label>
+            <input value="{{selectedNC.viceSecretory}}" type="text" class="form-control" name="vice-secretory" readonly>
+        </div>
+
+        <div class="col-md-2">
+            <label for="finance" class="form-label">مالیات</label>
+            <input value="{{selectedNC.finance}}" type="text" class="form-control" name="finance" readonly>
+        </div>
+        <div class="col-md-2">
+            <label for="publicity" class="form-label">نشرواشاعت</label>
+            <input value="{{selectedNC.publicity}}" type="text" class="form-control" name="publicity" readonly>
+        </div>
+        <div class="col-md-2">
+            <label for="women-contacts" class="form-label">رابطہ خواتین</label>
+            <input value="{{selectedNC.womenContacts}}" type="text" class="form-control" name="women-contacts" readonly>
+        </div>
+        <div class="col-md-2">
+            <label for="study-circle" class="form-label">سٹڈی سرکل</label>
+            <input value="{{selectedNC.studyCircle}}" type="text" class="form-control" name="study-circle" readonly>
+        </div>
+        <div class="col-md-2">
+            <label for="youth" class="form-label">یوتھ</label>
+            <input value="{{selectedNC.youth}}" type="text" class="form-control" name="youth" readonly>
+        </div>
+        <div class="col-md-2">
+            <label for="political-council" class="form-label">سیاسی کونسل</label>
+            <input value="{{selectedNC.politicalCouncil}}" type="text" class="form-control" name="political-council" readonly>
+        </div>
+    </div>
+    
+    <div class="block manpower-block">
+        <h3 class="block-heading">افرادی قوت</h3>
+        <div class="row g-3">
+            <label for="rukan-initial" class="form-label">رکن</label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="rukan-initial" value="{{manPower.arkanInitial}} :آغاز میں" readonly>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="rukan-added" value="{{manPower.arkanAdded}} :اضافہ" readonly>
+            </div>            
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="rukan-minus" value="{{manPower.arkanMinus}} :کمی" readonly>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="rukan-now" value="{{manPower.arkanNow}} :موجودہ" readonly>
+            </div>
+
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="rukan-active" value="{{manPower.active}} :فعال" readonly>
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="rukan-retired" value="{{manPower.retired}} :استشنیٰ" readonly>
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="rukan-passive" value="{{manPower.passive}} :غیر فعال" readonly>
+            </div>            
+        </div>
+
+        <div class="row g-3">
+            <label for="umeedwar-initial" class="form-label">امیدواررکن</label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="umeedwar-initial" value="{{manPower.umeerwarInitial}} :آغاز میں" readonly>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="umeedwar-added" value="{{manPower.umeerwarAdded}} :اضافہ" readonly>
+            </div>            
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="umeedwar-minus" value="{{manPower.umeerwarMinus}} :کمی" readonly>
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" name="umeedwar-now" value="{{manPower.umeerwarNow}} :موجودہ" readonly>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="rukan-rwabit" class="form-label">ارکان</label>
+                <input type="text" class="form-control" name="rukan-rwabit" value="{{manPower.arkanRwabit}}" readonly>
+            </div>
+            <div class="col-md-6">
+                <label for="rukan-rwabit-number" class="form-label">تعداد روابط</label>
+                <input type="text" class="form-control" name="rukan-rwabit-number" value="{{manPower.arkanRwabitNumber}}" readonly>
+            </div>            
+            <div class="col-md-6">
+                <label for="umeedwar-rwabit" class="form-label">امیدواران</label>
+                <input type="text" class="form-control" name="umeedwar-rwabit" value="{{manPower.umeedwarRwabit}}" readonly>
+            </div>
+            <div class="col-md-6">
+                <label for="umeedwar-rwabit-number" class="form-label">تعداد روابط</label>
+                <input type="text" class="form-control" name="umeedwar-rwabit-number" value="{{manPower.umeedwarRwabitNumber}}" readonly>
+            </div>
+        </div>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="karkun" class="form-label">تعداد ممبران سٹڈی سرکل/ تنظیمی کارکنان</label>
+                <input type="text" class="form-control" name="karkun" value="{{manPower.karkun}}" readonly>
+            </div>
+            <div class="col-md-6">
+                <label for="voters" class="form-label">تعداد ووٹرز</label>
+                <input type="text" class="form-control" name="voters" value="{{manPower.voters}}" readonly>
+            </div>
+        </div>
+    </div>
+
+    <div class="block program-block row g-3">
+        <h3 class="block-heading">این سی پروگرامات</h3>
+        {% for x in programNC %}
+        {% if x.name == "tanzeemi-ijtama" %}
+        <div class="col-md-3">
+            <label for="tanzeemi-ijtama-target" class="form-label">تنظیمی اجتماع</label>
+            <input value="{{x.target}} :ہدف" type="text" class="form-control" name="tanzeemi-ijtama-target" placeholder="ہدف" readonly>
+            <input value="{{x.held}} :منعقدہ" type="text" class="form-control" name="tanzeemi-ijtama-held" placeholder="منقعدہ" readonly>
+            <input value="{{x.attendence}} :حاضری" type="text" class="form-control" name="tanzeemi-ijtama-attendence" placeholder="حاضری" readonly>
+        </div>
+
+        {% elif x.name == "dars" %}
+        <div class="col-md-3">
+            <label for="dars-target" class="form-label">درس قرآن</label>
+            <input value="{{x.target}} :ہدف" type="text" class="form-control" name="dars-target" placeholder="ہدف" readonly>
+            <input value="{{x.held}} :منعقدہ" type="text" class="form-control" name="dars-held" placeholder="منقعدہ" readonly>
+            <input value="{{x.attendence}} :حاضری" type="text" class="form-control" name="dars-attendence" placeholder="حاضری" readonly>
+        </div>
+
+        {% elif x.name == "dawati-ijtama" %}
+        <div class="col-md-3">
+            <label for="dawati-ijtama-target" class="form-label">دعوتی اجتماع</label>
+            <input value="{{x.target}} :ہدف" type="text" class="form-control" name="dawati-ijtama-target" placeholder="ہدف" readonly>
+            <input value="{{x.held}} :منعقدہ" type="text" class="form-control" name="dawati-ijtama-held" placeholder="منقعدہ" readonly>
+            <input value="{{x.attendence}} :حاضری" type="text" class="form-control" name="dawati-ijtama-attendence" placeholder="حاضری" readonly>
+        </div>
+
+        {% elif x.name == "ahl-khana" %}
+        <div class="col-md-3">
+            <label for="ahl-khana-target" class="form-label">اجتماع اہل خانہ</label>
+            <input value="{{x.target}} :ہدف" type="text" class="form-control" name="ahl-khana-target" placeholder="ہدف" readonly>
+            <input value="{{x.held}} :منعقدہ" type="text" class="form-control" name="ahl-khana-held" placeholder="منقعدہ" readonly>
+            <input value="{{x.attendence}} :حاضری" type="text" class="form-control" name="ahl-khana-attendence" placeholder="حاضری" readonly>
+        </div>
+
+        {% else %}
+        <div class="col-md-3">
+            <label for="{{x.name}}-target" class="form-label">{{x.name}}</label>
+            <input value="{{x.target}} :ہدف" type="text" class="form-control" name="{{x.name}}-target" placeholder="ہدف" readonly>
+            <input value="{{x.held}} :منعقدہ" type="text" class="form-control" name="{{x.name}}-held" placeholder="منقعدہ" readonly>
+            <input value="{{x.attendence}} :حاضری" type="text" class="form-control" name="{{x.name}}-attendence" placeholder="حاضری" readonly>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <div class="col-md-12">
+            <label for="extra-target" class="form-label">دوران ماہ کتنے بلاک کوڈز میں دعوتی اجتماع منعقد ہوا؟</label>
+            <input value="{{report.dawaProgramCount}}" type="number" class="form-control" name="dawa-program-count" readonly>
+        </div>
+    </div>
+
+    <div class="block library-block row g-3">
+        <h3 class="block-heading">این سی میں رسائل و لائبریری</h3>
+        {% for x in libraryNDawa %}
+        {% if x.name == "trjaman" %}
+        <div class="col-md-2">
+            <label for="trjaman" class="form-label">ترجمان القرآن</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="trjaman" readonly>
+        </div>
+
+        {% elif x.name == "asia" %}
+        <div class="col-md-2">
+            <label for="asia" class="form-label">ایشیاء</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="asia" readonly>
+        </div>
+        
+        {% elif x.name == "btool" %}
+        <div class="col-md-2">
+            <label for="btool" class="form-label">بتول</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="btool" readonly>
+        </div>
+
+        {% elif x.name == "JI-library" %}
+        <div class="col-md-2">
+            <label for="JI-library" class="form-label">جماعتی لائبریری</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="JI-library" readonly>
+        </div>
+
+        {% elif x.name == "personal-library" %}
+        <div class="col-md-2">
+            <label for="personal-library" class="form-label">ذاتی لائبریری</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="personal-library" readonly>
+        </div>
+
+        {% elif x.name == "issue-books" %}
+        <div class="col-md-2">
+            <label for="issue-books" class="form-label">اجراء کتب لائبریری</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="issue-books" readonly>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="block Dawa-block row g-3">
+        <h3 class="block-heading">دعوتی وفود</h3>
+        {% for x in libraryNDawa %}
+        {% if x.name == "total-block-code" %}
+        <div class="col-md-2">
+            <label for="total-block-code" class="form-label">این سی میں کل بلاک کوڈ</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="total-block-code" readonly>
+        </div>
+        {% elif x.name == "permenent-dawa" %}
+        <div class="col-md-2">
+            <label for="permenent-dawa" class="form-label">قائم کردہ مستقل دعوتی وفود</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="permenent-dawa" readonly>
+        </div>
+        {% elif x.name == "held-dawa" %}
+        <div class="col-md-2">
+            <label for="held-dawa" class="form-label">دوران ماہ وفد منعقدہ</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="held-dawa" readonly>
+        </div>
+        {% elif x.name == "total-meetings" %}
+        <div class="col-md-2">
+            <label for="total-meetings" class="form-label">تعداد ملاقاتیں</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="total-meetings" readonly>
+        </div>
+        {% elif x.name == "no-of-houses" %}
+        <div class="col-md-2">
+            <label for="no-of-houses" class="form-label">تعداد گھر</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="no-of-houses" readonly>
+        </div>
+        {% elif x.name == "books-distribution" %}
+        <div class="col-md-2">
+            <label for="books-distribution" class="form-label">تقسیم لٹریچر/ کتب</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="books-distribution" readonly>
+        </div>
+        {% elif x.name == "individual-meetings" %}
+        <div class="col-md-2">
+            <label for="individual-meetings" class="form-label">انفرادی ملاقاتیں(ارکان)</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="individual-meetings" readonly>
+        </div>
+        {% elif x.name == "voters" %}
+        <div class="col-md-2">
+            <label for="voters" class="form-label">ووٹرز/ممبرز(حاصل کردا نمبرز)</label>
+            <input value="{{x.number}}" type="number" class="form-control" name="voters" readonly>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    
+    <div class="block politics-block row g-3">
+        <h3 class="block-heading">سیاسی امور</h3>
+        <div class="col-md-4">
+            <label for="public-secretariat" class="form-label">کیا پبلک سیکٹریٹ قائم ہے؟</label>
+            <input value="{{politics.isPublicSecretariat}}" type="text" class="form-control" name="public-secretariat" readonly>
+        </div>
+        <div class="col-md-4">
+            <label for="political-activity" class="form-label">دوران ماہ کوئی سرگرمی</label>
+            <input value="{{politics.activity}}" type="text" class="form-control" name="political-activity" readonly>
+        </div>
+        
+        <div class="col-md-4">
+            <label for="public-issue" class="form-label">شہری مسائل پر کوئی کوشش</label>
+            <input value="{{politics.tryOnCitizenIssue}}" type="text" class="form-control" name="public-issue" readonly>
+        </div>
+    </div>
+
+    <div class="block upper-block row g-3">
+        <h3 class="block-heading">بالائی نظم کے پروگرام</h3>
+        {% for x in upperProgram %}
+        {% if x.name == "zone-org-program" %}
+        <div class="col-md-4">
+            <label for="zone-org-program-target" class="form-label">زونل تنظیمی اجتماع</label>
+            <input value="{{x.target}} :ھدف" type="text" class="form-control" name="zone-org-program-target" placeholder="ہدف" readonly>
+            <input value="{{x.attendence}} :شرکاء" type="text" class="form-control" name="zone-org-program-attendence" placeholder="شرکاء" readonly>
+        </div>
+        {% elif x.name == "zone-tarbiyya-program" %}
+        <div class="col-md-4">
+            <label for="zone-tarbiyya-program-target" class="form-label">زونل تربیتی اجتماع</label>
+            <input value="{{x.target}} :ھدف" type="text" class="form-control" name="zone-tarbiyya-program-target" placeholder="ہدف" readonly>
+            <input value="{{x.attendence}} :شرکاء" type="text" class="form-control" name="zone-tarbiyya-program-attendence" placeholder="شرکاء" readonly>
+        </div>
+        {% elif x.name == "zone-study-circle" %}
+        <div class="col-md-4">
+            <label for="zone-study-circle-target" class="form-label">زونل سٹڈی سرکل</label>
+            <input value="{{x.target}} :ھدف" type="text" class="form-control" name="zone-study-circle-target" placeholder="ہدف" readonly>
+            <input value="{{x.attendence}} :شرکاء" type="text" class="form-control" name="zone-study-circle-attendence" placeholder="شرکاء" readonly>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="block alkhidmat-block row g-3">
+        <h3 class="block-heading">الخدمت</h3>
+
+        <div class="col-md-3">
+            <label for="is-alkhidmat-project" class="form-label">کیا کوئی پراجیکٹ ہے؟</label>
+            <input value="{{alkhidmat.isProject}}" type="text" class="form-control" name="is-alkhidmat-project" readonly>
+        </div>
+        {% if alkhidmat.isProject == "ہاں" %}
+        {% for x in alkhidmatProjectDetails %}
+            <div class="col-md-12">
+                <label for="alkhidmat-project" class="form-label">تفصیل۔۔۔</label>
+                <input value="{{x.detail}}" type="text" class="form-control" name="alkhidmat-project" readonly>
+            </div>
+        {% endfor %}
+        {% endif %}
+        <div class="col-md-3">
+            <label for="is-alkhidmat-future-project" class="form-label">کیا مزید پراجیکٹ کا منصوبہ ہے؟</label>
+            <input value="{{alkhidmat.isFutureProject}}" type="text" class="form-control" name="is-alkhidmat-future-project" readonly>
+        </div>
+    </div>
+    
+    <div class="block IT-block row g-3">
+        <h3 class="block-heading">آئی ٹی/ سوشل میڈیا</h3>
+        <div class="col-md-3">
+            <label for="facebook-page" class="form-label">فیس بک پیج</label>
+            <input value="{{it.facebook}}" type="text" class="form-control" name="facebook-page" readonly>
+        </div>
+        <div class="col-md-3">
+            <label for="whatsapp-number" class="form-label">واٹس ایپ نمبر</label>
+            <input value="{{it.whatsapp}}" type="number" class="form-control" name="whatsapp-number" readonly>
+        </div>
+        
+        <div class="col-md-3">
+            <label for="email" class="form-label">ای میل اکاؤنٹ</label>
+            <input value="{{it.email}}" type="email" class="form-control" name="email" readonly>
+        </div>
+
+        <div class="col-md-3">
+            <label for="youtube-channel" class="form-label">یوٹیوب چینل</label>
+            <input value="{{it.youtube}}" type="text" class="form-control" name="youtube-channel" readonly>
+        </div>
+    </div>
+
+    <div class="block finance-block row g-3">
+        <h3 class="block-heading">مالیات</h3>
+        {% for x in finance %}
+        {% if x.name == 'monthly' %}
+        <div class="col-md-2">
+            <label for="monthly-balance" class="form-label">ماہانہ اعانت</label>
+            <input value="{{x.previousBalance}} :سابقہ بدست" readonly type="text" class="form-control" name="monthly-balance" id="monthly-balance" placeholder="سابقہ بدست">
+            <input value="{{x.amount}} :دوران ماہ وصولی" readonly type="text" class="form-control" name="monthly-amount" id="monthly-amount" placeholder="دوران ماہ وصولی">
+            <input value="{{x.total}} :کل رقم" readonly type="text" class="form-control" name="monthly-total" id="monthly-total" placeholder="کل رقم">
+            <input value="{{x.expenses}} :اخراجات" readonly type="text" class="form-control" name="monthly-expenses" id="monthly-expenses" placeholder="اخراجات">
+            <input value="{{x.upper}} :ادائیگی بالائی نظم" readonly type="text" class="form-control" name="monthly-upper" id="monthly-upper" placeholder="ادائیگی بالائی نظم">
+            <input value="{{x.currentBalance}} :موجودہ بدست" readonly type="text" class="form-control" name="monthly-current" id="monthly-current" placeholder="موجودہ بدست">
+        </div>
+        {% elif x.name == 'zakat' %}
+        <div class="col-md-2">
+            <label for="zakat-balance" class="form-label">زکوٰۃ</label>
+            <input value="{{x.previousBalance}} :سابقہ بدست" readonly type="text" class="form-control" name="zakat-balance" id="zakat-balance" placeholder="سابقہ بدست">
+            <input value="{{x.amount}} :دوران ماہ وصولی" readonly type="text" class="form-control" name="zakat-amount" id="zakat-amount" placeholder="دوران ماہ وصولی">
+            <input value="{{x.total}} :کل رقم" readonly type="text" class="form-control" name="zakat-total" id="zakat-total" placeholder="کل رقم">
+            <input value="{{x.expenses}} :اخراجات" readonly type="text" class="form-control" name="zakat-expenses" id="zakat-expenses" placeholder="اخراجات">
+            <input value="{{x.upper}} :ادائیگی بالائی نظم" readonly type="text" class="form-control" name="zakat-upper" id="zakat-upper" placeholder="ادائیگی بالائی نظم">
+            <input value="{{x.currentBalance}} :موجودہ بدست" readonly type="text" class="form-control" name="zakat-current" id="zakat-current" placeholder="موجودہ بدست">
+        </div>
+        {% elif x.name == 'social-welfare' %}
+        <div class="col-md-2">
+            <label for="social-welfare-balance" class="form-label">خدمت خلق</label>
+            <input value="{{x.previousBalance}} :سابقہ بدست" readonly type="text" class="form-control" name="social-welfare-balance" id="social-welfare-balance" placeholder="سابقہ بدست">
+            <input value="{{x.amount}} :دوران ماہ وصولی" readonly type="text" class="form-control" name="social-welfare-amount" id="social-welfare-amount" placeholder="دوران ماہ وصولی">
+            <input value="{{x.total}} :کل رقم" readonly type="text" class="form-control" name="social-welfare-total" id="social-welfare-total" placeholder="کل رقم">
+            <input value="{{x.expenses}} :اخراجات" readonly type="text" class="form-control" name="social-welfare-expenses" id="social-welfare-expenses" placeholder="اخراجات">
+            <input value="{{x.upper}} :ادائیگی بالائی نظم" readonly type="text" class="form-control" name="social-welfare-upper" id="social-welfare-upper" placeholder="ادائیگی بالائی نظم">
+            <input value="{{x.currentBalance}} :موجودہ بدست" readonly type="text" class="form-control" name="social-welfare-current" id="social-welfare-current" placeholder="موجودہ بدست">
+        </div>
+        {% elif x.name == 'extra' %}
+        <div class="col-md-2">
+            <label for="extra-balance" class="form-label">دیگر امانتی رقوم</label>
+            <input value="{{x.previousBalance}} :سابقہ بدست" readonly type="text" class="form-control" name="extra-balance" id="extra-balance" placeholder="سابقہ بدست">
+            <input value="{{x.amount}} :دوران ماہ وصولی" readonly type="text" class="form-control" name="extra-amount" id="extra-amount" placeholder="دوران ماہ وصولی">
+            <input value="{{x.total}} :کل رقم" readonly type="text" class="form-control" name="extra-total" id="extra-total" placeholder="کل رقم">
+            <input value="{{x.expenses}} :اخراجات" readonly type="text" class="form-control" name="extra-expenses" id="extra-expenses" placeholder="اخراجات">
+            <input value="{{x.upper}} :ادائیگی بالائی نظم" readonly type="text" class="form-control" name="extra-upper" id="extra-upper" placeholder="ادائیگی بالائی نظم">
+            <input value="{{x.currentBalance}} :موجودہ بدست" readonly type="text" class="form-control" name="extra-current" id="extra-current" placeholder="موجودہ بدست">
+        </div>
+        {% elif x.name == 'total' %}
+        <div class="col-md-2">
+            <label for="total-balance" class="form-label">کل</label>
+            <input value="{{x.previousBalance}} :سابقہ بدست" readonly type="text" class="form-control" name="total-balance" id="total-balance" placeholder="سابقہ بدست">
+            <input value="{{x.amount}} :دوران ماہ وصولی" readonly type="text" class="form-control" name="total-amount" id="total-amount" placeholder="دوران ماہ وصولی">
+            <input value="{{x.total}} :کل رقم" readonly type="text" class="form-control" name="total-total" id="total-total" placeholder="کل رقم">
+            <input value="{{x.expenses}} :اخراجات" readonly type="text" class="form-control" name="total-expenses" id="total-expenses" placeholder="اخراجات">
+            <input value="{{x.upper}} :ادائیگی بالائی نظم" readonly type="text" class="form-control" name="total-upper" id="total-upper" placeholder="ادائیگی بالائی نظم">
+            <input value="{{x.currentBalance}} :موجودہ بدست" readonly type="text" class="form-control" name="total-current" id="total-current" placeholder="موجودہ بدست">
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="block extra-block row g-3">
+        <h3 class="block-heading">دیگر معلومات</h3>
+        <div class="col-md-2">
+            <label for="monthly-balance" class="form-label">جنوری سے اب تک اضافہ</label>
+            {% for x in ncYearlyReport %}
+                <input readonly value="{{x.addedFromStart}}" type="number" class="form-control" name="added-from-start-{{forloop.counter}}">
+            {% endfor %}
+        </div>
+
+        <div class="col-md-2">
+            <label for="monthly-balance" class="form-label">اضافہ دوران ماہ</label>
+            {% for x in ncYearlyReport %}
+                <input readonly value="{{x.monthlyAdded}}" type="number" class="form-control" name="added-from-start-{{forloop.counter}}">
+            {% endfor %}
+        </div>
+        <div class="col-md-2">
+            <label for="monthly-balance" class="form-label">اس سال کا ہدف</label>
+            {% for x in ncYearlyReport %}
+                <input readonly value="{{x.goal}}" type="number" class="form-control" name="added-from-start-{{forloop.counter}}">
+            {% endfor %}
+        </div>
+        <div class="col-md-2">
+            <label for="monthly-balance" class="form-label">اس سال کے آغاز پر</label>
+            {% for x in ncYearlyReport %}
+                <input readonly value="{{x.start}}" type="number" class="form-control" name="added-from-start-{{forloop.counter}}">
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+            <label for="monthly-balance" class="form-label">...</label>
+            {% for x in ncYearlyReport %}
+                <input readonly value="{{x.sentence}}" type="text" class="form-control" name="added-from-start-{{forloop.counter}}">
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include 'showRukan.html' %}
+    {% include 'showUmeedwar.html' %}
+    <h3 class="block-heading">کارکنان</h3>
+    {% include 'showMember.html' %}
+    <h3 class="block-heading">این سی کے اہداف</h3>
+    {% include 'showNCGoals.html' %}
+
+</form>
